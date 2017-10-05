@@ -1,15 +1,67 @@
-canvas{
-    margin: 0 auto;
-    display: block;
-    background-color: black;;
+body{
+    background-color: orange;
+    /* background-image: url('https://cdna.artstation.com/p/assets/images/images/002/489/282/medium/doug-chiang-starwarsforceawakens-001.jpg?1462355383');
+    background-position: center; */
+    text-align: center;
 }
 
-.container{
+h1{
+    font-weight: bold;
+    font-size: 40px;
+    color: #CA7D00;
+
+}
+
+
+canvas{
+    
+    background-color: #CA7D00;
+}
+
+/* .container{
     background-color: #D6D6D6;
     padding: 0;
-}
+} */
 
 .can{
     background-color: orange;
     padding: 30px;
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+}
+
+.lead{
+    padding: 0;
+    width:30%;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    color:rgba(0, 0, 0, 0.69);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.lead:hover{
+    color: red;
+}
+
+.player{
+    color: rgba(0, 0, 0, 0.78);
+    font-weight: bold;
+    font-size: 26px;
+    
+    /* border-bottom: 2px solid #A3A3A3; */
+    width: 45%;
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    
+}
+
+.active{
+    background-color: rgba(202, 125, 0, 0.34);
+    -webkit-box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.47);
+    -moz-box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.47);
+    box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.47);
 }

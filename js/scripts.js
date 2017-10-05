@@ -15,7 +15,7 @@ Game = {
         Game.field = new Field();
         Game.field.prepareFields();
         Game.field.drawField();
-        Game.ticTac = new TicTac();
+        Game.tictac = new TicTac();
 
         // Game.canvas.addEventListener('mousedown', function (e) {
         //     var mousePos = getMousePos(e);
