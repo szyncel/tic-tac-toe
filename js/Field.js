@@ -15,6 +15,10 @@ Field.prototype.prepareFields = function () {
     }
 }
 
+Field.prototype.clearFields=function(){
+    Game.context.clearRect(0,0,canvas.width,canvas.height);
+}
+
 Field.prototype.drawField = function () {
     Game.context.fillStyle = "orange";
     for (var i = 0; i < 3; i++) {

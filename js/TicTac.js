@@ -1,5 +1,6 @@
 function TicTac() {
     this.position;
+    this.actualPlayer = document.querySelectorAll('.player');
     this.clickedField;
     this.table = [];
 
@@ -11,6 +12,13 @@ function TicTac() {
     }
 
     this.actualTurn = 1;
+
+    // this.newGame.onclick = function () {
+       
+    //     console.log('klikc');
+    //     Game.context.clearRect(0,0,Game.canvas.width,Game.canvas.height);
+
+    // }.bind(this);
 
 
 
@@ -26,15 +34,21 @@ function TicTac() {
 
                     this.table[this.clickedField.x][this.clickedField.y] = 'x';
                     this.drawX(test.x + 75, test.y + 75);
-                    this.test('x');
+
+                    this.actualPlayer[0].classList.remove('active');
+                    this.actualPlayer[1].classList.add('active');
                     this.actualTurn = 2;
+                    this.test('x');
 
 
                 } else {
                     this.drawO(test.x + 75, test.y + 75);
                     this.table[this.clickedField.x][this.clickedField.y] = 'o';
-                    this.test('o');
+
+                    this.actualPlayer[1].classList.remove('active');
+                    this.actualPlayer[0].classList.add('active');
                     this.actualTurn = 1;
+                    this.test('o');
                 }
             }
 
@@ -42,6 +56,21 @@ function TicTac() {
         }
 
     }.bind(this), false);
+
+}
+
+
+TicTac.prototype.resetGame = function () {
+    this.actualPlayer[1].classList.remove('active');
+    this.actualPlayer[0].classList.add('active');
+    this.actualTurn = 1;
+
+    for (var i = 0; i < 3; i++) {
+        this.table[i] = [];
+        for (var j = 0; j < 3; j++) {
+            this.table[i][j] = "*";
+        }
+    }
 
 }
 
@@ -68,9 +97,9 @@ TicTac.prototype.test = function (ch) {
 
 
 TicTac.prototype.drawX = function (x, y) {
-    Game.context.strokeStyle="#CA7D00";
+    Game.context.strokeStyle = "#CA7D00";
     Game.context.beginPath();
-    
+
     // context.lineCap='round';
     Game.context.lineWidth = 15;
     Game.context.moveTo(x - 50, y - 50);
@@ -84,7 +113,7 @@ TicTac.prototype.drawX = function (x, y) {
 
 TicTac.prototype.drawO = function (x, y) {
     Game.context.beginPath();
-    Game.context.strokeStyle="#CA7D00";
+    Game.context.strokeStyle = "#CA7D00";
     // context.lineCap='round';
     Game.context.lineWidth = 15;
     Game.context.arc(x, y, 50, 0, 2 * Math.PI);

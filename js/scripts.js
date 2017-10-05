@@ -8,14 +8,24 @@ Game = {
     init: function () {
         Game.canvas = document.createElement('canvas');
         Game.context = Game.canvas.getContext('2d');
-        var doc = document.querySelector('.can');
-        doc.appendChild(Game.canvas);
+        Game.doc = document.querySelector('.can');
+        Game.newGame=document.querySelector('.lead');
+        Game.doc.appendChild(Game.canvas);
         Game.layout();
 
         Game.field = new Field();
         Game.field.prepareFields();
         Game.field.drawField();
         Game.tictac = new TicTac();
+
+        Game.newGame.onclick=function(){
+            Game.tictac.resetGame();
+            Game.context.clearRect(0,0,Game.canvas.width,Game.canvas.height);
+            Game.field.prepareFields();
+            Game.field.drawField();
+        }
+
+
 
         // Game.canvas.addEventListener('mousedown', function (e) {
         //     var mousePos = getMousePos(e);
